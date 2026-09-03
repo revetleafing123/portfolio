@@ -181,7 +181,7 @@ export function ProjectsSection() {
                 >
                   <div className="p-6 flex-1 flex flex-col">
                     <div
-                      className="mb-6 bg-[#f5f1e8] overflow-hidden rounded-sm cursor-pointer"
+                      className="mb-6 bg-[#f5f1e8] overflow-hidden rounded-none cursor-pointer"
                       onClick={() => setSelectedProject(project)}
                     >
                       <img

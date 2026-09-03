@@ -1,5 +1,5 @@
 import { AnimatePresence, motion, type Variants } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import {
   FaArrowLeft,
@@ -25,6 +25,7 @@ import {
   SiTailwindcss,
   SiTypescript,
 } from "react-icons/si";
+
 import {
   Tooltip,
   TooltipContent,
@@ -112,6 +113,144 @@ function getTechSvgAsset(name: string): string | null {
   if (lower.includes("figma")) return techAsset("figma.svg");
   if (lower.includes("framer") || lower.includes("motion")) return techAsset("motion.svg");
   return null;
+}
+
+function MobileTechTooltip({ tech, src, isCss, isHtml, iconSizeClass }: {
+  tech: string;
+  src: string | null;
+  isCss: boolean;
+  isHtml: boolean;
+  iconSizeClass: string;
+}) {
+  const [show, setShow] = useState(false);
+  const touchHandled = useRef(false);
+  const justShown = useRef(false);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    e.stopPropagation();
+    touchHandled.current = true;
+    justShown.current = true;
+    setShow(true);
+  };
+
+  const handleClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (touchHandled.current) {
+      touchHandled.current = false;
+      return;
+    }
+    setShow((prev) => !prev);
+  };
+
+  const hide = () => {
+    if (justShown.current) {
+      justShown.current = false;
+      return;
+    }
+    setShow(false);
+  };
+
+  return (
+    <div className="relative">
+      <div
+        role="button"
+        tabIndex={0}
+        className="relative inline-block cursor-pointer transition-transform hover:scale-125"
+        onClick={handleClick}
+        onTouchStart={handleTouchStart}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            setShow((prev) => !prev);
+          }
+        }}
+        aria-label={tech}
+      >
+        {src ? (
+          <img src={src} alt={tech} className={`${iconSizeClass} object-contain`} />
+        ) : (
+          <span className="text-xs font-bold text-[#7a6456]">{tech}</span>
+        )}
+      </div>
+      {show && (
+        <>
+          <div
+            className="fixed inset-0 z-40"
+            onClick={hide}
+            onTouchStart={hide}
+            aria-hidden="true"
+          />
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 8 }}
+            transition={{ duration: 0.18, ease: "easeOut" }}
+            className="absolute left-1/2 top-full mt-2 z-50 whitespace-nowrap pointer-events-none -translate-x-1/2"
+          >
+            <div className="bg-[#1f1d1a] text-[#f5f1e8] border border-[var(--editorial-line)] px-2.5 py-1 text-[0.68rem] font-semibold tracking-wider rounded-xs shadow-md uppercase">
+              {tech}
+            </div>
+          </motion.div>
+        </>
+      )}
+    </div>
+  );
+}
+
+function useHoverDevice() {
+  const [hover, setHover] = useState(true);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(hover: hover)");
+    setHover(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setHover(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+
+  return hover;
+}
+
+function TechItem({ tech }: { tech: string }) {
+  const hover = useHoverDevice();
+  const src = getTechSvgAsset(tech);
+  const isCss = tech.toLowerCase().trim() === "css";
+  const isHtml = tech.toLowerCase().trim() === "html";
+  const iconSizeClass = isCss ? "size-8.5 scale-110" : isHtml ? "size-8" : "size-7.5";
+
+  if (hover) {
+    return (
+      <Tooltip key={tech}>
+        <TooltipTrigger asChild>
+          <div className="relative inline-block cursor-pointer transition-transform hover:scale-125">
+            {src ? (
+              <img src={src} alt={tech} className={`${iconSizeClass} object-contain`} />
+            ) : (
+              <span className="text-xs font-bold text-[#7a6456]">{tech}</span>
+            )}
+          </div>
+        </TooltipTrigger>
+        <TooltipContent
+          side="bottom"
+          sideOffset={6}
+          className="bg-[#1f1d1a] text-[#f5f1e8] border border-[var(--editorial-line)] px-2.5 py-1 text-[0.68rem] font-semibold tracking-wider rounded-xs shadow-md z-50 uppercase"
+        >
+          {tech}
+        </TooltipContent>
+      </Tooltip>
+    );
+  }
+
+  return (
+    <MobileTechTooltip
+      key={tech}
+      tech={tech}
+      src={src}
+      isCss={isCss}
+      isHtml={isHtml}
+      iconSizeClass={iconSizeClass}
+    />
+  );
 }
 
 export function ProjectDetails({ open, onClose, project }: ProjectDetailsProps) {
@@ -233,39 +372,9 @@ export function ProjectDetails({ open, onClose, project }: ProjectDetailsProps) 
 
                 <TooltipProvider delayDuration={50}>
                   <div className="flex items-center gap-4 flex-wrap pt-1">
-                    {(project.stack || ["React", "TypeScript", "Node.js", "Tailwind"]).map((tech) => {
-                      const src = getTechSvgAsset(tech);
-                      const isCss = tech.toLowerCase().trim() === "css";
-                      const isHtml = tech.toLowerCase().trim() === "html";
-                      const iconSizeClass = isCss ? "size-8.5 scale-110" : isHtml ? "size-8" : "size-7.5";
-
-                      return (
-                        <Tooltip key={tech}>
-                          <TooltipTrigger asChild>
-                            <div className="relative cursor-pointer transition-transform hover:scale-125">
-                              {src ? (
-                                <img
-                                  src={src}
-                                  alt={tech}
-                                  className={`${iconSizeClass} object-contain`}
-                                />
-                              ) : (
-                                <span className="text-xs font-bold text-[#7a6456]">
-                                  {tech}
-                                </span>
-                              )}
-                            </div>
-                          </TooltipTrigger>
-                          <TooltipContent
-                            side="bottom"
-                            sideOffset={6}
-                            className="bg-[#1f1d1a] text-[#f5f1e8] border border-[var(--editorial-line)] px-2.5 py-1 text-[0.68rem] font-semibold tracking-wider rounded-xs shadow-md z-50 uppercase"
-                          >
-                            {tech}
-                          </TooltipContent>
-                        </Tooltip>
-                      );
-                    })}
+                    {(project.stack || ["React", "TypeScript", "Node.js", "Tailwind"]).map((tech) => (
+                      <TechItem key={tech} tech={tech} />
+                    ))}
                   </div>
                 </TooltipProvider>
               </div>
