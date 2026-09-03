@@ -119,6 +119,7 @@ export function DynamicTiles({ className }: { className?: string }) {
                     src={src}
                     alt=""
                     className="h-20 w-20 object-contain lg:h-32 lg:w-32"
+                    style={{ filter: "grayscale(1) brightness(0.85)" }}
                   />
                 ))}
               </div>
