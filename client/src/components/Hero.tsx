@@ -58,7 +58,6 @@ export function Hero() {
 
   return (
     <section className="relative isolate min-h-[760px] md:min-h-[min(100dvh,900px)] lg:min-h-[min(100dvh,860px)] overflow-hidden bg-[#f5f1e8] text-[#1f1d1a]" id="top">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_35%,rgba(213,180,77,0.16),transparent_28%),linear-gradient(115deg,#f5f1e8_0%,#fbf8f1_52%,#f1e9dc_100%)]" />
       <HeroColorPanelsRoot
         className="absolute inset-0 z-0"
         showBadges={false}
