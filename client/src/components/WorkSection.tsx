@@ -9,12 +9,13 @@ export function WorkSection() {
           <div className="section-reveal">
             <SectionHeader
               eyebrow="MY BUILDS"
-              title={<>Products with something<br />real behind them.</>}
+              title={<>What I build.</>}
               titleClassName="text-[clamp(2rem,4vw,3.2rem)]"
-              description="Three builds, each with a different constraint: scale, agency, and operational clarity."
+              description="I'm a fullstack developer working in Python and JavaScript — from AI agents to SaaS products, end-to-end. The resume has the details."
             />
           </div>
           <div
+            id="resume"
             className="work-resume-card section-reveal overflow-hidden rounded-[1.25rem] border border-black/10 px-5 py-6 sm:px-7 sm:py-8"
             style={{
               background: "#f5f1e8",
