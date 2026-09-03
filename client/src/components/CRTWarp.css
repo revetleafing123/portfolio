@@ -1,0 +1,20 @@
+/* CRTWarp hero background: the canvas is visual atmosphere only and never competes with the content layer. */
+.crt-warp-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: #9c7eba;
+}
+
+.crt-warp-container canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .crt-warp-container {
+    filter: saturate(0.75);
+  }
+}
