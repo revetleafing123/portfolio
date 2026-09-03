@@ -184,7 +184,7 @@ export function ProjectDetails({ open, onClose, project }: ProjectDetailsProps) 
             </div>
 
             {/* Drawer Scrollable Body Content */}
-            <motion.div variants={contentVariants} className="p-5 sm:p-6 flex-1 overflow-y-auto">
+            <motion.div variants={contentVariants} className="p-5 sm:p-6 flex-1 overflow-y-auto custom-scrollbar">
               {/* Project Framed Preview Image */}
               <div className="overflow-hidden rounded-none border border-[var(--editorial-line)] mb-6 bg-[#e9dfcf]/60">
                 <img
