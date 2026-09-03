@@ -25,7 +25,7 @@ const tiles: TileData[] = [
   { id: "linkedin", label: "LinkedIn", imgSrc: publicAsset("linkedin.svg"), rectImgSrc: publicAsset("LinkedIn-Logo.wine.svg"), href: "https://www.linkedin.com/in/risheb-s-b46a40289", accent: "#0A66C2" },
   { id: "cloud", label: "Cloud", imgSrc: publicAsset("cloud-16.svg"), href: "#tech", accent: "#2563eb" },
   { id: "github", label: "GitHub", imgSrc: publicAsset("github_dark.svg"), rectImgSrc: publicAsset("GitHub_Lockup_Black_Clearspace.svg"), href: "https://github.com/rishebss", accent: "#24292e" },
-  { id: "techs", label: "Techs", Icon: FaCode, href: "#tech", accent: "#c2410c", techSvgs: [publicAsset("django.svg"), publicAsset("fastapi.svg"), publicAsset("react-dark.svg"), publicAsset("expressjs-dark.svg")] },
+  { id: "techs", label: "Techs", Icon: FaCode, href: "#tech", accent: "#c2410c", techSvgs: [publicAsset("ai-terminal.svg")] },
 ];
 
 // Four slots arranged as a 2x2 bento block. TL (0) and BR (2) are wide
@@ -112,13 +112,13 @@ export function DynamicTiles({ className }: { className?: string }) {
             }}
           >
             {tile.techSvgs && !rect ? (
-              <div className="grid h-24 w-24 grid-cols-2 grid-rows-2 place-items-center gap-2 lg:h-40 lg:w-40">
+              <div className="grid h-24 w-24 place-items-center lg:h-40 lg:w-40">
                 {tile.techSvgs.map((src) => (
                   <img
                     key={src}
                     src={src}
                     alt=""
-                    className="h-10 w-10 lg:h-14 lg:w-14"
+                    className="h-20 w-20 object-contain lg:h-32 lg:w-32"
                   />
                 ))}
               </div>
