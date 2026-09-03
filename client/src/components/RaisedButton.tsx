@@ -44,7 +44,7 @@ export function RaisedButton(props: RaisedButtonProps) {
   const classes = cn(raisedButtonBaseClassName, variantClassName, sizeClassName, className);
 
   if ("href" in props && props.href) {
-    const { href, ...linkProps } = props;
+    const { href, children: _c, className: _cn, size: _s, iconOnly: _io, variant: _v, ...linkProps } = props;
     return (
       <a href={href} className={classes} {...linkProps}>
         {children}
@@ -53,7 +53,7 @@ export function RaisedButton(props: RaisedButtonProps) {
   }
 
   const buttonProps = props as RaisedButtonElementProps;
-  const { href: _href, children: _children, className: _className, ...rest } = buttonProps;
+  const { href: _href, children: _children, className: _className, size: _size, iconOnly: _iconOnly, variant: _variant, ...rest } = buttonProps;
   return (
     <button type="button" className={classes} {...rest}>
       {children}
