@@ -298,22 +298,26 @@ export function ProjectDetails({ open, onClose, project }: ProjectDetailsProps) 
             {/* Drawer Footer Actions */}
             <motion.div
               variants={contentVariants}
-              className="px-4 py-3 sm:px-6 border-t border-[var(--editorial-line)] bg-[#efeae0] flex items-center justify-end gap-2.5 mt-auto shrink-0"
+              className="px-4 py-3 sm:px-6 border-t border-[var(--editorial-line)] bg-[#efeae0] flex items-center justify-end gap-3.5 mt-auto shrink-0 z-20"
             >
               <a
                 href={project.githubUrl || "https://github.com/rishebss"}
                 target="_blank"
                 rel="noreferrer"
-                className="p-2 border border-[var(--editorial-line)] bg-[#f5f1e8] text-[var(--editorial-ink)] hover:bg-[#7a6456] hover:text-white transition-colors cursor-pointer"
+                className="inline-flex items-center justify-center h-8 transition-transform hover:scale-105 cursor-pointer shrink-0"
                 title="View Source Code"
               >
-                <FaGithub size={14} />
+                <img
+                  src={`${import.meta.env.BASE_URL}github_dark.svg`}
+                  alt="GitHub"
+                  className="h-8 w-auto object-contain"
+                />
               </a>
               <a
                 href={project.link || project.githubUrl || "https://github.com/rishebss"}
                 target="_blank"
                 rel="noreferrer"
-                className="px-4 py-2 text-xs font-semibold bg-[#7a6456] text-white hover:bg-[#635145] transition-colors flex items-center gap-2 cursor-pointer shadow-sm"
+                className="px-4 py-2 text-xs font-semibold bg-[#7a6456] text-white hover:bg-[#635145] transition-colors flex items-center gap-2 cursor-pointer shadow-sm h-8"
               >
                 <span>Visit</span>
                 <FaArrowUpRightFromSquare size={10} />
