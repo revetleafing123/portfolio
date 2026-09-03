@@ -1,4 +1,5 @@
 import { SectionHeader } from "@/components/SectionHeader";
+import { FaDownload } from "react-icons/fa6";
 
 export function WorkSection() {
   return (
@@ -13,12 +14,34 @@ export function WorkSection() {
               description="Three builds, each with a different constraint: scale, agency, and operational clarity."
             />
           </div>
-          <div className="section-reveal">
-            <img
-              alt="Selected work"
-              className="w-full rounded-3xl object-cover"
-              src={`${import.meta.env.BASE_URL}folders2.png`}
-            />
+          <div
+            className="work-resume-card section-reveal overflow-hidden rounded-[1.25rem] border border-black/10 px-5 py-6 sm:px-7 sm:py-8"
+            style={{
+              background: "#f5f1e8",
+              boxShadow: [
+                "inset 1px 1px 1px rgba(255,255,255,0.9)",
+                "inset -1px -1px 1px rgba(110,99,85,0.12)",
+                "inset 8px 6px 14px rgba(120,105,75,0.16)",
+                "inset -8px -6px 14px rgba(255,255,255,0.7)",
+                "0 10px 26px rgba(87,69,52,0.08)",
+              ].join(", "),
+            }}
+          >
+            <p className="eyebrow">MY RESUME</p>
+            <h2 className="mt-3 font-display text-2xl font-semibold tracking-[-0.05em] text-[#1f1d1a] sm:text-3xl">
+              The short version.
+            </h2>
+            <p className="mt-3 text-sm leading-6 text-[#1f1d1a]/60">
+              Download the current resume as a PDF.
+            </p>
+            <a
+              className="work-resume-link mt-6"
+              href={`${import.meta.env.BASE_URL}resume/Risheb.s_Resume.pdf`}
+              download="Rishebs-Resume.pdf"
+            >
+              <FaDownload aria-hidden="true" size={12} />
+              <span>Download resume</span>
+            </a>
           </div>
         </div>
       </div>
