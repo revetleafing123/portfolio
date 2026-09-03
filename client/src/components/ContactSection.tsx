@@ -6,11 +6,11 @@ import { Input } from "@/components/ui/input";
 import { RaisedButton } from "@/components/RaisedButton";
 
 // Same neumorphic recipe used in DynamicTiles: fields/button share the
-// SECTION's own background (#e9dfcf) rather than a different-colored fill
+// SECTION's own background (#f4f0e8) rather than a different-colored fill
 // — depth comes entirely from the dual soft shadow, not from contrast in
 // fill color. Inputs are recessed (inset shadow, "pressed into" the page);
 // the submit button is raised (outer shadow), matching tile conventions.
-const NEO_BASE_BG = "#e9dfcf";
+const NEO_BASE_BG = "#f4f0e8";
 const NEO_BASE_BUTTON_BG = "#4a3f2d";
 
 // Layered like a real carved groove: a SHARP thin edge (the lip of the
@@ -57,7 +57,7 @@ export function ContactSection() {
   };
 
   return (
-    <section className="py-24 sm:py-32 bg-[#e9dfcf]" id="contact">
+    <section className="editorial-surface py-24 sm:py-32" id="contact">
       <div className="container">
         <div className="grid gap-12 lg:grid-cols-[1fr_0.68fr] lg:items-end lg:gap-24">
           <div>

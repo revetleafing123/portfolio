@@ -35,7 +35,7 @@ export function WorkSection() {
               Download the current resume as a PDF.
             </p>
             <a
-              className="work-resume-link mt-6"
+              className="work-resume-link mt-10"
               href={`${import.meta.env.BASE_URL}resume/Risheb.s_Resume.pdf`}
               download="Rishebs-Resume.pdf"
             >

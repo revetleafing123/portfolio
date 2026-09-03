@@ -484,7 +484,8 @@
     font-weight: 600;
     line-height: 1;
     white-space: nowrap;
-    transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+    box-shadow: 4px 4px 8px rgba(120, 105, 75, 0.28), -3px -3px 7px rgba(255, 255, 255, 0.65), inset 1px 1px 1px rgba(255, 255, 255, 0.18);
+    transition: background-color 160ms ease, border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
   }
 
   .work-resume-link svg {
@@ -495,12 +496,14 @@
   .work-resume-link:hover {
     border-color: #6b5a4e;
     background: #6b5a4e;
+    box-shadow: 5px 5px 10px rgba(120, 105, 75, 0.3), -3px -3px 8px rgba(255, 255, 255, 0.7), inset 1px 1px 1px rgba(255, 255, 255, 0.2);
     transform: translateY(-1px);
   }
 
   .work-resume-link:active {
     border-color: #4a3c32;
     background: #4a3c32;
+    box-shadow: inset 3px 3px 6px rgba(45, 35, 28, 0.35), inset -2px -2px 5px rgba(255, 255, 255, 0.12);
     transform: translateY(1px);
   }
 
