@@ -136,12 +136,7 @@ export function ExperienceSection() {
                 key={item.company}
               >
                 {index < experience.length - 1 && (
-                  <>
-                    {(index + 1) % 4 !== 0 && (
-                      <span className="absolute right-0 top-0 hidden h-px w-[calc(1.5rem+var(--radius-xl))] translate-x-full bg-[var(--editorial-line)] md:block lg:w-[calc(1.25rem+var(--radius-xl))]" />
-                    )}
-                    <span className="absolute -bottom-[calc(1.5rem+var(--radius-xl))] -left-px z-10 h-[calc(1.5rem+var(--radius-xl))] w-px bg-[var(--editorial-line)] md:hidden" />
-                  </>
+                  <span className="absolute -bottom-[calc(1.5rem+var(--radius-xl))] -left-px z-10 h-[calc(1.5rem+var(--radius-xl))] w-px bg-[var(--editorial-line)] md:hidden" />
                 )}
                 <span className="font-display text-3xl tracking-[-0.08em] text-[var(--editorial-muted)]">
                   {String(index + 1).padStart(2, "0")}

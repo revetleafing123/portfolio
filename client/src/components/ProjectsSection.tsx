@@ -3,7 +3,8 @@ import { useCallback, useEffect, useState } from "react";
 import { RaisedButton } from "@/components/RaisedButton";
 import { SectionHeader } from "@/components/SectionHeader";
 import { FaGithub } from "react-icons/fa";
-import { FaArrowLeft, FaArrowRight, FaArrowUpRightFromSquare, FaEye } from "react-icons/fa6";
+import { FaArrowLeft, FaArrowRight, FaArrowUpRightFromSquare } from "react-icons/fa6";
+import { MdDoubleArrow } from "react-icons/md";
 import { ProjectDetails } from "@/components/ProjectDetails";
 
 export interface ProjectItem {
@@ -177,8 +178,23 @@ export function ProjectsSection() {
               {projects.map((project, index) => (
                 <div
                   key={index}
-                  className="embla__slide flex-none w-[85vw] sm:w-[60vw] md:w-[45vw] lg:w-[30vw] group border border-[var(--editorial-line)] overflow-hidden bg-[#f5f1e8] flex flex-col justify-between"
+                  className="embla__slide flex-none w-[85vw] sm:w-[60vw] md:w-[45vw] lg:w-[30vw] group border border-gray-300/70 overflow-hidden flex flex-col justify-between relative"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, rgba(255,255,255,0.50) 0%, rgba(255,255,255,0.18) 40%, rgba(255,255,255,0.10) 100%)",
+                    backdropFilter: "blur(14px) saturate(1.6)",
+                    WebkitBackdropFilter: "blur(14px) saturate(1.6)",
+                    boxShadow:
+                      "inset 0 1px 0 rgba(255,255,255,0.85), inset 0 0 0 1px rgba(255,255,255,0.45), 0 8px 24px rgba(163,150,124,0.22), 0 2px 6px rgba(163,150,124,0.14)",
+                  }}
                 >
+                  <div
+                    className="absolute inset-x-0 top-0 h-[1px] pointer-events-none"
+                    style={{
+                      background:
+                        "linear-gradient(90deg, transparent, rgba(255,255,255,0.85) 30%, rgba(255,255,255,0.85) 70%, transparent)",
+                    }}
+                  />
                   <div className="p-6 flex-1 flex flex-col">
                     <div
                       className="mb-6 bg-[#f5f1e8] overflow-hidden rounded-none cursor-pointer"
@@ -195,10 +211,7 @@ export function ProjectsSection() {
                         {project.date}
                       </p>
                     </div>
-                    <h3
-                      className="font-display text-2xl font-semibold tracking-[-0.04em] text-[var(--editorial-ink)] cursor-pointer hover:underline"
-                      onClick={() => setSelectedProject(project)}
-                    >
+                    <h3 className="font-display text-2xl font-semibold tracking-[-0.04em] text-[var(--editorial-ink)]">
                       {project.title}
                     </h3>
                     <p className="mt-3 text-sm leading-6 text-[var(--editorial-muted)] flex-1">
@@ -217,7 +230,7 @@ export function ProjectsSection() {
                       className="bg-[#7a6456] text-white hover:bg-[#635145] text-xs font-semibold px-3.5 py-1.5 flex items-center gap-1.5 transition-colors cursor-pointer"
                     >
                       <span>View</span>
-                      <FaEye size={11} />
+                      <MdDoubleArrow size={13} />
                     </button>
                   </div>
                 </div>
