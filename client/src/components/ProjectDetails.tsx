@@ -111,6 +111,7 @@ function getTechSvgAsset(name: string): string | null {
   if (lower.includes("redis")) return techAsset("redis.svg");
   if (lower.includes("tailwind")) return techAsset("tailwind-css.svg");
   if (lower.includes("firebase")) return techAsset("firebase-icon.svg");
+  if (lower.includes("glm")) return techAsset("glm.svg");
   if (lower.includes("cloudflare")) return techAsset("cloudflare.svg");
   if (lower.includes("openai") || lower.includes("llm") || lower.includes("ai"))
     return techAsset("openai-fill.svg");
@@ -237,11 +238,15 @@ function TechItem({ tech }: { tech: string }) {
   const src = getTechSvgAsset(tech);
   const isCss = tech.toLowerCase().trim() === "css";
   const isHtml = tech.toLowerCase().trim() === "html";
+  const isGlm = tech.toLowerCase().trim() === "glm";
   const iconSizeClass = isCss
     ? "size-8.5 scale-110"
     : isHtml
       ? "size-8"
-      : "size-7.5";
+      : isGlm
+        ? "size-8"
+        : "size-7.5";
+  const glmBorder = isGlm ? " border border-[var(--editorial-line)] rounded-[6px] bg-white p-0.5 shadow-sm" : "";
 
   if (hover) {
     return (
@@ -252,7 +257,7 @@ function TechItem({ tech }: { tech: string }) {
               <img
                 src={src}
                 alt={tech}
-                className={`${iconSizeClass} object-contain`}
+                className={`${iconSizeClass} object-contain${glmBorder}`}
               />
             ) : (
               <span className="text-xs font-bold text-[#7a6456]">{tech}</span>
@@ -277,7 +282,7 @@ function TechItem({ tech }: { tech: string }) {
       src={src}
       isCss={isCss}
       isHtml={isHtml}
-      iconSizeClass={iconSizeClass}
+      iconSizeClass={`${iconSizeClass}${glmBorder}`}
     />
   );
 }
@@ -369,34 +374,13 @@ export function ProjectDetails({
                 />
               </div>
 
-              {/* Metadata Specs Grid */}
-              <div className="grid grid-cols-2 gap-3 mb-6 p-3.5 rounded-none border border-[var(--editorial-line)] bg-[#efeae0]/80">
-                <div>
-                  <span className="text-[0.65rem] font-bold uppercase tracking-[0.12em] text-[var(--editorial-muted)] block mb-1">
-                    Project
-                  </span>
-                  <span className="text-sm font-semibold text-[var(--editorial-ink)]">
-                    {project.title}
-                  </span>
-                </div>
-
-                <div>
-                  <span className="text-[0.65rem] font-bold uppercase tracking-[0.12em] text-[var(--editorial-muted)] block mb-1">
-                    Type
-                  </span>
-                  <span className="text-sm font-semibold text-[var(--editorial-ink)]">
-                    {project.type || project.badge}
-                  </span>
-                </div>
-
-                <div className="col-span-2 pt-2 border-t border-[var(--editorial-line)]/60">
-                  <span className="text-[0.65rem] font-bold uppercase tracking-[0.12em] text-[var(--editorial-muted)] block mb-1">
-                    Timeline
-                  </span>
-                  <span className="text-xs font-medium text-[var(--editorial-ink)]">
-                    {project.date}
-                  </span>
-                </div>
+              <div className="flex justify-end gap-2 mb-6 flex-wrap">
+                <span className="px-3 py-1.5 text-xs font-semibold bg-[#7a6456] text-white shadow-sm">
+                  {project.type || project.badge}
+                </span>
+                <span className="px-3 py-1.5 text-xs font-semibold bg-[#7a6456] text-white shadow-sm">
+                  {project.date}
+                </span>
               </div>
 
               {/* Tech Stack Section with SVGs and bottom tooltips */}
@@ -439,6 +423,98 @@ export function ProjectDetails({
                       "Complete transaction logs for every contact & lead",
                       "Dedicated Payments hub — one-time, pipeline & invoice tracking",
                       "Media Library — bucket / collection creation for contact-linked assets",
+                    ].map((text, i) => (
+                      <li key={i} className="flex gap-2.5 items-start text-sm leading-5 text-[var(--editorial-muted)]">
+                        <span className="mt-2 size-1.5 rounded-full bg-[#7a6456] shrink-0" />
+                        <span>{text}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : project.title === "Sneaket Store" ? (
+                  <ul className="space-y-2.5">
+                    {[
+                      "Sneaker e-commerce with AI-powered shopping assistant built into the storefront",
+                      "Full agentic system — not a chatbot wrapper",
+                      "React frontend → Django (DRF) backend → PostgreSQL (Neon)",
+                      "Cloudflare Worker as LLM proxy layer",
+                      "Function-calling: model selects tool, Django executes against live product/order DB, returns structured UI card (not plain text)",
+                      "Sensitive actions (checkout, cancellation/refunds) gated behind confirm-token flow",
+                      "Ongoing: reasoning loop over tool results — judge product fit, retry bad search, stay grounded across multi-turn conversations",
+                    ].map((text, i) => (
+                      <li key={i} className="flex gap-2.5 items-start text-sm leading-5 text-[var(--editorial-muted)]">
+                        <span className="mt-2 size-1.5 rounded-full bg-[#7a6456] shrink-0" />
+                        <span>{text}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : project.title === "Kerala Jersey" ? (
+                  <ul className="space-y-2.5">
+                    {[
+                      "Premium sports jersey e-commerce — curated collection with high-conversion catalog",
+                      "Instant filtered search — team, league & size filters with realtime results",
+                      "Responsive product showcase with optimized imagery via Cloudinary",
+                      "Streamlined checkout and merchandise ordering flow",
+                      "FastAPI + React stack for performant browsing and inventory handling",
+                    ].map((text, i) => (
+                      <li key={i} className="flex gap-2.5 items-start text-sm leading-5 text-[var(--editorial-muted)]">
+                        <span className="mt-2 size-1.5 rounded-full bg-[#7a6456] shrink-0" />
+                        <span>{text}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : project.title === "YatraSutra" ? (
+                  <ul className="space-y-2.5">
+                    {[
+                      "Travel agency platform — discover exotic destinations with immersive galleries",
+                      "Compare packages side-by-side with transparent pricing and inclusions",
+                      "Craft custom itineraries via dynamic itinerary builder",
+                      "Appwrite-backed content for fast destination & package management",
+                      "Responsive experience optimized for travel discovery on any device",
+                    ].map((text, i) => (
+                      <li key={i} className="flex gap-2.5 items-start text-sm leading-5 text-[var(--editorial-muted)]">
+                        <span className="mt-2 size-1.5 rounded-full bg-[#7a6456] shrink-0" />
+                        <span>{text}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : project.title === "LP Workflow" ? (
+                  <ul className="space-y-2.5">
+                    {[
+                      "Workflow-based custom software for abroad studies operations",
+                      "Applicant tracking with multi-stage pipeline and status verification",
+                      "Document collection and verification workflow per applicant",
+                      "Role-aware operations view for counsellors and admins",
+                      "Built for auditability and operational clarity in consulting workflows",
+                    ].map((text, i) => (
+                      <li key={i} className="flex gap-2.5 items-start text-sm leading-5 text-[var(--editorial-muted)]">
+                        <span className="mt-2 size-1.5 rounded-full bg-[#7a6456] shrink-0" />
+                        <span>{text}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : project.title === "LifePlanner" ? (
+                  <ul className="space-y-2.5">
+                    {[
+                      "Studies & opportunities portal for overseas education consulting",
+                      "Program recommendations matched to student profile and goals",
+                      "University advisor connect — direct guidance and application support",
+                      "Content-rich portal for courses, scholarships & career paths",
+                      "Clean, accessible UI built for student-first discovery",
+                    ].map((text, i) => (
+                      <li key={i} className="flex gap-2.5 items-start text-sm leading-5 text-[var(--editorial-muted)]">
+                        <span className="mt-2 size-1.5 rounded-full bg-[#7a6456] shrink-0" />
+                        <span>{text}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : project.title === "Filmaatic" ? (
+                  <ul className="space-y-2.5">
+                    {[
+                      "Creative studio website for institute of fashion and cinema",
+                      "Course enrollment portal with batch and curriculum showcase",
+                      "High-impact media galleries for student work and productions",
+                      "Studio branding with cinematic visual language",
+                      "Streamlined inquiry & enrollment flow for prospective students",
                     ].map((text, i) => (
                       <li key={i} className="flex gap-2.5 items-start text-sm leading-5 text-[var(--editorial-muted)]">
                         <span className="mt-2 size-1.5 rounded-full bg-[#7a6456] shrink-0" />
@@ -510,13 +586,13 @@ export function ProjectDetails({
                   href={project.githubUrl || "https://github.com/rishebss"}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center justify-center h-8 transition-transform hover:scale-105 cursor-pointer shrink-0"
+                  className="inline-flex items-center justify-center h-9 transition-transform hover:scale-105 cursor-pointer shrink-0"
                   title="View Source Code"
                 >
                   <img
                     src={`${import.meta.env.BASE_URL}github_dark.svg`}
                     alt="GitHub"
-                    className="h-8 w-auto object-contain"
+                    className="h-9 w-auto object-contain"
                   />
                 </a>
               )}

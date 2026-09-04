@@ -41,7 +41,7 @@ const projects: ProjectItem[] = [
     type: "AI Personal Project",
     description: "A sneaker store integrated with an AI assistant for personalized recommendations, market analysis, and conversational cart actions.",
     image: "https://imgbob.net/ib/L8Hj8oPDLZNk3lz_1788321064.png",
-    stack: ["Django", "React", "PostgreSQL", "Cloudinary", "Vercel"],
+    stack: ["Django", "React", "PostgreSQL", "Cloudinary", "GLM", "Vercel"],
     services: ["Frontend — React", "Backend — Django", "Database — Neon Postgres", "Object Storage — Cloudinary", "Hosting — Vercel (frontend & backend)"],
     link: "https://sneaket.vercel.app",
     githubUrl: "https://github.com/rishebss/sneaket_frontend",
@@ -54,7 +54,7 @@ const projects: ProjectItem[] = [
     description: "An e-commerce store designed for premium sports jersey collection, instant filtered search, and merchandise ordering.",
     image: "https://imgbob.net/ib/Axl6tugyCLnwQNY_1788321064.png",
     stack: ["React", "FastAPI", "PostgreSQL", "Vercel", "Cloudinary"],
-    services: ["Frontend — React", "Backend — FastAPI", "Database — PostgreSQL", "Object Storage — Cloudinary", "Hosting — Vercel"],
+    services: ["Frontend — React", "Backend — FastAPI", "Database — Neon Postgres", "Object Storage — Cloudinary", "Hosting — Vercel (frontend + backend)"],
     note: "Note: This site belongs to Kerala Jersey — you are visiting their live official store with real products and ordering.",
   },
   {
@@ -65,7 +65,7 @@ const projects: ProjectItem[] = [
     description: "A travel agency website enabling users to discover exotic destinations, compare packages, and craft custom itineraries.",
     image: "https://imgbob.net/ib/8vcAdzPQxnQpa5d_1788320196.png",
     stack: ["React", "Appwrite"],
-    services: ["Frontend — React", "Backend — Appwrite", "Hosting — Vercel"],
+    services: ["Frontend — React", "Hosting — Cloudflare (frontend)", "Backend — Appwrite (DB + Storage)"],
     note: "Note: This site belongs to YatraSutra — you are visiting their live official travel agency website with real destinations and itineraries.",
   },
   {
@@ -76,7 +76,7 @@ const projects: ProjectItem[] = [
     description: "A workflow-based custom software designed for abroad studies operations, applicant tracking, and status verification.",
     image: "https://imgbob.net/ib/MuQxumHuyq9lI56_1788321064.png",
     stack: ["Django", "HTML", "CSS", "Vercel", "PostgreSQL"],
-    services: ["Frontend — HTML, CSS", "Backend — Django", "Database — PostgreSQL", "Hosting — Vercel"],
+    services: ["Backend — Django", "Database — Neon Postgres", "Hosting — Vercel"],
     note: "Note: The redirecting site is a clone made with client approval for demo purposes — no real applicant data exists on it.",
   },
   {
@@ -87,7 +87,7 @@ const projects: ProjectItem[] = [
     description: "A studies and opportunities portal connecting students with overseas education consulting, program recommendations, and university advisors.",
     image: "https://imgbob.net/ib/t7udRze64RyDebQ_1788321064.png",
     stack: ["Django", "Vercel", "HTML", "CSS"],
-    services: ["Frontend — HTML, CSS", "Backend — Django", "Database — PostgreSQL", "Hosting — Vercel"],
+    services: ["Backend — Django", "Database — Supabase Postgres", "Hosting — Vercel"],
     note: "Note: This site belongs to LifePlanner — Studies & Opportunities — you are visiting their live official portal with real consulting services.",
   },
   {
@@ -98,7 +98,7 @@ const projects: ProjectItem[] = [
     description: "A creative studio website and course enrollment portal for an institute of fashion and cinema.",
     image: "https://imgbob.net/ib/3jwrjIWiB9acyUW_1788320196.png",
     stack: ["React", "Express", "PostgreSQL"],
-    services: ["Frontend — React", "Backend — Express", "Database — PostgreSQL", "Hosting — Vercel"],
+    services: ["Frontend — React", "Backend — Express", "Database — Neon Postgres", "Hosting — Cloudflare (frontend), Vercel (backend)"],
     note: "Note: This site belongs to Filmaatic Studios — you are visiting their live official website with real studio content and courses.",
   },
 ];
