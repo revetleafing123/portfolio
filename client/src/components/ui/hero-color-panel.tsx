@@ -344,8 +344,7 @@ export function HeroColorPanelsHeading({
             )}
             data-slot="hero-colorpanels-heading"
           >
-            {resolvedTitle} <br />
-            {resolvedSubtitle}
+            {resolvedTitle} <br className="hidden sm:block" /> {resolvedSubtitle}
           </h2>
         </div>
       )}

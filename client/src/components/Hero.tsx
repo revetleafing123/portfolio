@@ -67,11 +67,11 @@ export function Hero() {
           <HeroColorPanelsContent className="max-w-2xl gap-5 px-0 text-left sm:gap-6 lg:pr-0">
             <HeroColorPanelsHeading
               className="pt-0 text-left"
-              headingClassName="font-display whitespace-nowrap text-[clamp(2.85rem,10.7vw,8.2rem)] font-semibold leading-[0.98] tracking-[-0.085em] text-[#1f1d1a] sm:text-[clamp(4.4rem,7.2vw,7.8rem)]"
+              headingClassName="font-display whitespace-nowrap text-[clamp(1.9rem,7.5vw,8.2rem)] font-semibold leading-[0.98] tracking-[-0.085em] text-[#1f1d1a] sm:text-[clamp(4.4rem,7.2vw,7.8rem)]"
               subtitle="Zero fluff."
               title={
                 <span ref={headingTextRef} className="whitespace-nowrap">
-                  Full stack
+                  Full stack,
                 </span>
               }
             />

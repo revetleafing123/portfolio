@@ -57,10 +57,8 @@ export default function Disclaimer() {
           <div className="flex flex-col gap-8 border-b border-black/10 pb-10 sm:flex-row sm:items-end sm:justify-between sm:gap-12">
             <div className="max-w-3xl">
               <p className="eyebrow">LEGAL / PRIVACY</p>
-              <h1 className="display-title mt-5 max-w-3xl text-[clamp(2.9rem,6vw,5rem)] tracking-[-0.07em]">
-                Privacy, without
-                <br aria-hidden="true" />
-                the fog.
+              <h1 className="display-title mt-5 max-w-3xl text-[clamp(1.9rem,6vw,3.4rem)] tracking-[-0.07em] whitespace-normal md:whitespace-nowrap break-words">
+                Privacy, without the fog.
               </h1>
               <p className="mt-6 max-w-2xl text-base leading-7 text-[#1f1d1a]/65 sm:text-lg sm:leading-8">
                 A plain-language explanation of what this portfolio collects, why it may be used, and where third-party services enter the picture.
@@ -72,7 +70,7 @@ export default function Disclaimer() {
           <div className="mt-12 grid gap-4 lg:grid-cols-[0.42fr_1fr] lg:gap-16">
             <aside className="h-fit rounded-[1.5rem] border border-black/10 bg-[#fbf8f1] p-5 shadow-[0_8px_22px_rgba(87,69,52,0.05)] lg:sticky lg:top-28"
             >
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#1f1d1a]/45">At a glance</p>
+              <p className="font-display text-xs font-semibold uppercase tracking-[0.16em] text-[#1f1d1a]/45">At a glance</p>
               <p className="mt-4 text-sm leading-6 text-[#1f1d1a]/70">This is a personal portfolio, not an account-based product. The main visitor-initiated data flow is the optional conversation started through your email client.</p>
               <a className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[var(--cobalt)] transition hover:gap-3" href="mailto:rishebs123456@gmail.com">
                 Ask a privacy question <FaArrowUpRightFromSquare aria-hidden="true" size={11} />
