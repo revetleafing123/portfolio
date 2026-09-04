@@ -8,7 +8,6 @@ import { ExperienceSection } from "@/components/ExperienceSection";
 import { TechSection } from "@/components/TechSection";
 import { Hero } from "@/components/Hero";
 import { RaisedButton } from "@/components/RaisedButton";
-import { SiteNav } from "@/components/SiteNav";
 import { WorkSection } from "@/components/WorkSection";
 import { ProjectsSection } from "@/components/ProjectsSection";
 
@@ -37,7 +36,6 @@ export default function Home() {
 
   return (
     <div className="site-shell" ref={pageRef}>
-      <SiteNav />
       <Hero />
 
       <main>

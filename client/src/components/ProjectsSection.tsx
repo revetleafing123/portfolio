@@ -58,6 +58,18 @@ const projects: ProjectItem[] = [
     note: "Note: This site belongs to Kerala Jersey — you are visiting their live official store with real products and ordering.",
   },
   {
+    title: "Miaat",
+    date: "Jan 2026",
+    badge: "Client Website",
+    type: "Client Website",
+    description: "A wellness & booking platform for a 17-year acupuncture practice — personalised treatments, whole-person care, and calendar-based service booking.",
+    image: "https://imgbob.net/ib/8FhFQWtNO9pLpVC_1788557688.png",
+    stack: ["React", "Express", "Vercel", "Neon"],
+    services: ["Frontend — React", "Backend — Express", "Database — Neon Postgres", "Hosting — Vercel (frontend & backend)"],
+    note: "Note: This site belongs to Miaat — you are visiting their live official wellness & booking platform for Dr. Thameem Ansari.",
+    link: "https://miaat.vercel.app",
+  },
+  {
     title: "YatraSutra",
     date: "Sept 2025",
     badge: "Client Website",

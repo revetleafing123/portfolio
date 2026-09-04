@@ -1,6 +1,7 @@
 /* Split Signal reminder: dark technical signal becomes a warm editorial canvas; keep cobalt purposeful and motion accessible. */
 @import "tailwindcss";
 @import "tw-animate-css";
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 
 @font-face {
   font-family: "Cocogoose";
@@ -13,6 +14,14 @@
 @font-face {
   font-family: "Built Titling";
   src: url("./assets/BuiltTitling-SbIt.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Built Titling SB";
+  src: url("/built%20titling%20sb.otf") format("opentype");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -83,7 +92,7 @@
 }
 
 @theme inline {
-  --font-display: "Space Grotesk", sans-serif;
+  --font-display: "Outfit", sans-serif;
   --font-body: "DM Sans", sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -254,8 +263,12 @@
   .display-title {
     font-family: var(--font-display);
     font-weight: 650;
-    letter-spacing: -0.075em;
+    letter-spacing: -0.02em !important;
     line-height: 0.92;
+  }
+
+  .font-display {
+    letter-spacing: 0.02em !important;
   }
 
   .eyebrow {
@@ -269,9 +282,10 @@
   }
 
   .built-titling {
-    font-family: "Built Titling", sans-serif;
+    font-family: "Built Titling SB", "Built Titling", sans-serif;
     font-style: normal;
     font-weight: 600;
+    letter-spacing: 0.08em;
   }
 
   .eyebrow-muted {

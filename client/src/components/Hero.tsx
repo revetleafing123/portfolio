@@ -71,7 +71,7 @@ export function Hero() {
               subtitle="Zero fluff."
               title={
                 <span ref={headingTextRef} className="whitespace-nowrap">
-                  Full stack,
+                  Full stack
                 </span>
               }
             />

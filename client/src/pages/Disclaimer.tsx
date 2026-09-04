@@ -1,7 +1,6 @@
 // Split Signal privacy page: warm editorial paper, cobalt navigation accents, and quiet technical copy.
 import { FaArrowLeft, FaArrowUpRightFromSquare } from "react-icons/fa6";
 import { Link } from "wouter";
-import { SiteNav } from "@/components/SiteNav";
 
 const sections = [
   {
@@ -53,7 +52,6 @@ const sections = [
 export default function Disclaimer() {
   return (
     <div className="site-shell min-h-screen bg-[#f5f1e8] text-[#1f1d1a]">
-      <SiteNav />
       <main className="pt-32 sm:pt-40">
         <section className="container pb-20 sm:pb-28">
           <div className="flex flex-col gap-8 border-b border-black/10 pb-10 sm:flex-row sm:items-end sm:justify-between sm:gap-12">

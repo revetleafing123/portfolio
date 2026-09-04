@@ -98,6 +98,7 @@ function getTechSvgAsset(name: string): string | null {
   if (lower.includes("appwrite")) return techAsset("appwrite.svg");
   if (lower.includes("fastapi")) return techAsset("fastapi.svg");
   if (lower.includes("django")) return techAsset("django.svg");
+  if (lower.includes("neon")) return techAsset("postgresql (1).svg");
   if (lower.includes("postgres")) return techAsset("postgresql (1).svg");
   if (lower.includes("react")) return techAsset("react-dark.svg");
   if (lower.includes("vercel")) return techAsset("vercel-dark.svg");
@@ -515,6 +516,22 @@ export function ProjectDetails({
                       "High-impact media galleries for student work and productions",
                       "Studio branding with cinematic visual language",
                       "Streamlined inquiry & enrollment flow for prospective students",
+                    ].map((text, i) => (
+                      <li key={i} className="flex gap-2.5 items-start text-sm leading-5 text-[var(--editorial-muted)]">
+                        <span className="mt-2 size-1.5 rounded-full bg-[#7a6456] shrink-0" />
+                        <span>{text}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : project.title === "Miaat" ? (
+                  <ul className="space-y-2.5">
+                    {[
+                      "Wellness & booking platform for Dr. Thameem Ansari — 17 years hands-on acupuncture expertise",
+                      "Personalized, whole-person care — treats root cause, not just symptoms",
+                      "Specializes in pain management, stress & anxiety, men's health & fertility support",
+                      "Inspired by grandmother's chronic pain healing — patient-centric journey",
+                      "Calendar-based booking for 7 services: Acupuncture, Facial/Cosmetic + Cupping, Dry/Fire/Herbal/Wet (Hijama) Cupping, Reflexology",
+                      "Transparent duration & pricing (e.g., 60min $95 Acupuncture, 90min $150 Facial, 75min $120 Hijama)",
                     ].map((text, i) => (
                       <li key={i} className="flex gap-2.5 items-start text-sm leading-5 text-[var(--editorial-muted)]">
                         <span className="mt-2 size-1.5 rounded-full bg-[#7a6456] shrink-0" />
