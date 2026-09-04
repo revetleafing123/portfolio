@@ -82,6 +82,14 @@ const contentVariants: Variants = {
 
 const techAsset = (file: string) => `${import.meta.env.BASE_URL}techs/${file}`;
 
+// Neomorphic (soft UI) shadow pair, tuned for the #f5f1e8 drawer background.
+// Light source assumed top-left: warm-white highlight top-left, warm-grey shadow bottom-right.
+const NEO_BASE_BG = "#f5f1e8";
+const neoShadow =
+  "5px 5px 10px rgba(163,150,124,0.45), -5px -5px 10px rgba(255,255,255,0.9)";
+const neoInsetShadow =
+  "inset 3px 3px 6px rgba(163,150,124,0.45), inset -3px -3px 6px rgba(255,255,255,0.9)";
+
 function getTechSvgAsset(name: string): string | null {
   const lower = name.toLowerCase().trim();
   if (lower.includes("cloudinary")) return techAsset("cloudinary.svg");
@@ -98,12 +106,14 @@ function getTechSvgAsset(name: string): string | null {
   if (lower.includes("express")) return techAsset("expressjs-dark.svg");
   if (lower.includes("python")) return techAsset("fastapi.svg");
   if (lower.includes("next")) return techAsset("nextjs-icon.svg");
-  if (lower.includes("typescript") || lower === "ts") return techAsset("typescript-icon.svg");
+  if (lower.includes("typescript") || lower === "ts")
+    return techAsset("typescript-icon.svg");
   if (lower.includes("redis")) return techAsset("redis.svg");
   if (lower.includes("tailwind")) return techAsset("tailwind-css.svg");
   if (lower.includes("firebase")) return techAsset("firebase-icon.svg");
   if (lower.includes("cloudflare")) return techAsset("cloudflare.svg");
-  if (lower.includes("openai") || lower.includes("llm") || lower.includes("ai")) return techAsset("openai-fill.svg");
+  if (lower.includes("openai") || lower.includes("llm") || lower.includes("ai"))
+    return techAsset("openai-fill.svg");
   if (lower.includes("docker")) return techAsset("docker (1).svg");
   if (lower.includes("aws")) return techAsset("aws.svg");
   if (lower.includes("mongodb")) return techAsset("mongodb.svg");
@@ -111,11 +121,18 @@ function getTechSvgAsset(name: string): string | null {
   if (lower.includes("sqlite")) return techAsset("sqlite.svg");
   if (lower.includes("supabase")) return techAsset("supabase-dark.svg");
   if (lower.includes("figma")) return techAsset("figma.svg");
-  if (lower.includes("framer") || lower.includes("motion")) return techAsset("motion.svg");
+  if (lower.includes("framer") || lower.includes("motion"))
+    return techAsset("motion.svg");
   return null;
 }
 
-function MobileTechTooltip({ tech, src, isCss, isHtml, iconSizeClass }: {
+function MobileTechTooltip({
+  tech,
+  src,
+  isCss,
+  isHtml,
+  iconSizeClass,
+}: {
   tech: string;
   src: string | null;
   isCss: boolean;
@@ -167,7 +184,11 @@ function MobileTechTooltip({ tech, src, isCss, isHtml, iconSizeClass }: {
         aria-label={tech}
       >
         {src ? (
-          <img src={src} alt={tech} className={`${iconSizeClass} object-contain`} />
+          <img
+            src={src}
+            alt={tech}
+            className={`${iconSizeClass} object-contain`}
+          />
         ) : (
           <span className="text-xs font-bold text-[#7a6456]">{tech}</span>
         )}
@@ -216,7 +237,11 @@ function TechItem({ tech }: { tech: string }) {
   const src = getTechSvgAsset(tech);
   const isCss = tech.toLowerCase().trim() === "css";
   const isHtml = tech.toLowerCase().trim() === "html";
-  const iconSizeClass = isCss ? "size-8.5 scale-110" : isHtml ? "size-8" : "size-7.5";
+  const iconSizeClass = isCss
+    ? "size-8.5 scale-110"
+    : isHtml
+      ? "size-8"
+      : "size-7.5";
 
   if (hover) {
     return (
@@ -224,7 +249,11 @@ function TechItem({ tech }: { tech: string }) {
         <TooltipTrigger asChild>
           <div className="relative inline-block cursor-pointer transition-transform hover:scale-125">
             {src ? (
-              <img src={src} alt={tech} className={`${iconSizeClass} object-contain`} />
+              <img
+                src={src}
+                alt={tech}
+                className={`${iconSizeClass} object-contain`}
+              />
             ) : (
               <span className="text-xs font-bold text-[#7a6456]">{tech}</span>
             )}
@@ -253,7 +282,11 @@ function TechItem({ tech }: { tech: string }) {
   );
 }
 
-export function ProjectDetails({ open, onClose, project }: ProjectDetailsProps) {
+export function ProjectDetails({
+  open,
+  onClose,
+  project,
+}: ProjectDetailsProps) {
   useEffect(() => {
     if (!open) return;
 
@@ -323,7 +356,10 @@ export function ProjectDetails({ open, onClose, project }: ProjectDetailsProps) 
             </div>
 
             {/* Drawer Scrollable Body Content */}
-            <motion.div variants={contentVariants} className="p-5 sm:p-6 flex-1 overflow-y-auto custom-scrollbar">
+            <motion.div
+              variants={contentVariants}
+              className="p-5 sm:p-6 flex-1 overflow-y-auto custom-scrollbar"
+            >
               {/* Project Framed Preview Image */}
               <div className="overflow-hidden rounded-none border border-[var(--editorial-line)] mb-6 bg-[#e9dfcf]/60">
                 <img
@@ -372,7 +408,14 @@ export function ProjectDetails({ open, onClose, project }: ProjectDetailsProps) 
 
                 <TooltipProvider delayDuration={50}>
                   <div className="flex items-center gap-4 flex-wrap pt-1">
-                    {(project.stack || ["React", "TypeScript", "Node.js", "Tailwind"]).map((tech) => (
+                    {(
+                      project.stack || [
+                        "React",
+                        "TypeScript",
+                        "Node.js",
+                        "Tailwind",
+                      ]
+                    ).map((tech) => (
                       <TechItem key={tech} tech={tech} />
                     ))}
                   </div>
@@ -391,11 +434,28 @@ export function ProjectDetails({ open, onClose, project }: ProjectDetailsProps) 
                 </p>
               </div>
 
-              {/* Note Banner */}
-              <div className="mb-6 p-3.5 border-l-4 border-[#7a6456] bg-[#efeae0] rounded-none">
-                <div className="flex items-center gap-2 text-[#7a6456] font-bold text-xs uppercase tracking-[0.12em] mb-1">
-                  <FaNoteSticky size={13} />
-                  <span>Project Note</span>
+              {/* Note Banner – 3D Realistic Glass */}
+              <div
+                className="mb-6 p-3.5 relative overflow-hidden border border-white/40"
+                style={{
+                  background:
+                    "linear-gradient(135deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 40%, rgba(255,255,255,0.08) 100%)",
+                  backdropFilter: "blur(14px) saturate(1.6)",
+                  WebkitBackdropFilter: "blur(14px) saturate(1.6)",
+                  boxShadow:
+                    "inset 0 1px 0 rgba(255,255,255,0.7), 0 4px 16px rgba(163,150,124,0.25), 0 1px 3px rgba(163,150,124,0.15)",
+                }}
+              >
+                {/* top specular highlight strip */}
+                <div
+                  className="absolute inset-x-0 top-0 h-[1px]"
+                  style={{
+                    background:
+                      "linear-gradient(90deg, transparent, rgba(255,255,255,0.85) 30%, rgba(255,255,255,0.85) 70%, transparent)",
+                  }}
+                />
+                <div className="text-[#7a6456] font-bold text-xs uppercase tracking-[0.12em] mb-1">
+                  <span>NOTE</span>
                 </div>
                 <p className="text-xs leading-5 text-[var(--editorial-ink)] font-medium">
                   {project.note ||
@@ -423,7 +483,11 @@ export function ProjectDetails({ open, onClose, project }: ProjectDetailsProps) 
                 />
               </a>
               <a
-                href={project.link || project.githubUrl || "https://github.com/rishebss"}
+                href={
+                  project.link ||
+                  project.githubUrl ||
+                  "https://github.com/rishebss"
+                }
                 target="_blank"
                 rel="noreferrer"
                 className="px-4 py-2 text-xs font-semibold bg-[#7a6456] text-white hover:bg-[#635145] transition-colors flex items-center gap-2 cursor-pointer shadow-sm h-8"
@@ -438,4 +502,3 @@ export function ProjectDetails({ open, onClose, project }: ProjectDetailsProps) 
     </AnimatePresence>
   );
 }
-
