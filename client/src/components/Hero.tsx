@@ -81,7 +81,7 @@ export function Hero() {
               descriptionClassName="font-sans text-sm leading-6 !text-[#4e4941] sm:text-base sm:leading-7"
             />
             <div className="flex items-center gap-3 mb-10 md:mb-10 lg:mb-0">
-              <RaisedButton href="#work" variant="default">
+              <RaisedButton href="#projects" variant="default">
                 See my works <MdDoubleArrow aria-hidden="true" size={14} />
               </RaisedButton>
               <RaisedButton href="mailto:rishebs123456@gmail.com" size="lg" iconOnly variant="default">

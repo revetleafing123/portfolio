@@ -7,7 +7,7 @@ import { FaBars, FaLinkedinIn, FaXmark } from "react-icons/fa6";
 import { RaisedButton } from "@/components/RaisedButton";
 
 const links = [
-  { label: "Work", href: "#work" },
+  { label: "Work", href: "#projects" },
   { label: "Path", href: "#experience" },
   { label: "Contact", href: "#contact" },
 ];
