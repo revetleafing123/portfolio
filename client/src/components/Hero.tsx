@@ -57,16 +57,16 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative isolate min-h-[760px] md:min-h-[min(100dvh,900px)] lg:min-h-[min(100dvh,860px)] overflow-hidden bg-[#f5f1e8] text-[#1f1d1a]" id="top">
+    <section className="relative isolate min-h-[710px] md:min-h-[710px] lg:min-h-[860px] overflow-hidden bg-[#f5f1e8] text-[#1f1d1a]" id="top">
       <HeroColorPanelsRoot
         className="absolute inset-0 z-0"
         showBadges={false}
         srTitle="Rishebs portfolio"
       >
-        <HeroColorPanelsContainer className="container relative z-10 grid min-h-[min(100dvh,860px)] items-center gap-10 pb-24 pt-32 sm:pb-28 lg:grid-cols-[minmax(340px,0.9fr)_minmax(360px,1.1fr)] lg:gap-14 lg:pt-28 xl:grid-cols-[0.8fr_1.2fr]">
+        <HeroColorPanelsContainer className="container relative z-10 grid min-h-[710px] lg:min-h-[860px] items-center gap-10 pb-24 pt-32 sm:pb-28 lg:grid-cols-[minmax(340px,0.9fr)_minmax(360px,1.1fr)] lg:gap-14 lg:pt-28 xl:grid-cols-[0.8fr_1.2fr]">
           <HeroColorPanelsContent className="max-w-2xl gap-5 px-0 text-left sm:gap-6 lg:pr-0">
             <HeroColorPanelsHeading
-              className="pt-0 text-left"
+              className="pt-0 text-left mt-10 sm:mt-0"
               headingClassName="font-display whitespace-nowrap text-[clamp(1.9rem,7.5vw,8.2rem)] font-semibold leading-[0.98] tracking-[-0.085em] text-[#1f1d1a] sm:text-[clamp(4.4rem,7.2vw,7.8rem)]"
               subtitle="Zero fluff."
               title={

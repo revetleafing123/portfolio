@@ -92,7 +92,7 @@
 }
 
 @theme inline {
-  --font-display: "Oswald", sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
   --font-body: "DM Sans", sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -263,12 +263,12 @@
   .display-title {
     font-family: var(--font-display);
     font-weight: 650;
-    letter-spacing: -0.02em !important;
+    letter-spacing: -0.04em !important;
     line-height: 0.92;
   }
 
   .font-display {
-    letter-spacing: 0.02em !important;
+    letter-spacing: -0.015em !important;
   }
 
   .eyebrow {
