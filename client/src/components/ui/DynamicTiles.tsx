@@ -112,13 +112,13 @@ export function DynamicTiles({ className }: { className?: string }) {
             }}
           >
             {tile.techSvgs && !rect ? (
-              <div className="grid h-24 w-24 place-items-center lg:h-40 lg:w-40">
+              <div className="grid h-20 w-20 place-items-center lg:h-32 lg:w-32">
                 {tile.techSvgs.map((src) => (
                   <img
                     key={src}
                     src={src}
                     alt=""
-                    className="h-20 w-20 object-contain lg:h-32 lg:w-32"
+                    className="h-14 w-14 object-contain sm:h-14 sm:w-14 lg:h-24 lg:w-24"
                     style={{ filter: "grayscale(1) brightness(0.85)" }}
                   />
                 ))}

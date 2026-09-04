@@ -15,6 +15,7 @@ export interface ProjectItem {
   description: string;
   image: string;
   stack?: string[];
+  services?: string[];
   note?: string;
   link?: string;
   githubUrl?: string;
@@ -26,10 +27,10 @@ const projects: ProjectItem[] = [
     date: "Present",
     badge: "Personal SaaS",
     type: "Personal SaaS",
-    description: "A comprehensive CRM platform for high-growth teams. Manage leads, automate workflows, and scale business operations with role-based security.",
+    description: "Nurturley is a complete Business Client Relations platform — single-tenant, role-based access with granular menu control. Contacts act as the master source, flowing into Active Leads and a multi-pipeline CRM (Client, Sales, Retarget) with Kanban boards and fully custom stages. Automations include auto lead distribution, payment cycle capture, retarget flows, bulk moves & cross-pipeline bulk copies, plus mandatory-field enforcement on lead details. Includes contact/lead transaction logs, a dedicated Payments hub for one-time, pipeline & invoice tracking, and a Media Library with bucket/collection creation for all contact-linked assets.",
     image: "https://imgbob.net/ib/W32ABSbfpVvbVwi_1788321064.png",
     stack: ["Django", "React", "PostgreSQL", "Netlify", "Koyeb"],
-    note: "Engineering Note: Domain-driven backend split into independent modules for CRM, HR, contacts, and invoicing without monolithic lock-in.",
+    services: ["Frontend — React", "Backend — Django", "Database — Rivestack Postgres", "Object Storage — Cloudinary", "Hosting — Koyeb (backend), Netlify (frontend)"],
     link: "https://rishebsuite.netlify.app",
     githubUrl: "https://github.com/rishebss/suite-frontend",
   },
@@ -41,7 +42,7 @@ const projects: ProjectItem[] = [
     description: "A sneaker store integrated with an AI assistant for personalized recommendations, market analysis, and conversational cart actions.",
     image: "https://imgbob.net/ib/L8Hj8oPDLZNk3lz_1788321064.png",
     stack: ["Django", "React", "PostgreSQL", "Cloudinary", "Vercel"],
-    note: "AI Tool-Calling Note: Implements direct LLM tool calling for real-time inventory queries and conversational cart actions.",
+    services: ["Frontend — React", "Backend — Django", "Database — Neon Postgres", "Object Storage — Cloudinary", "Hosting — Vercel (frontend & backend)"],
     link: "https://sneaket.vercel.app",
     githubUrl: "https://github.com/rishebss/sneaket_frontend",
   },
@@ -53,7 +54,8 @@ const projects: ProjectItem[] = [
     description: "An e-commerce store designed for premium sports jersey collection, instant filtered search, and merchandise ordering.",
     image: "https://imgbob.net/ib/Axl6tugyCLnwQNY_1788321064.png",
     stack: ["React", "FastAPI", "PostgreSQL", "Vercel", "Cloudinary"],
-    note: "E-Commerce Note: Built for high-conversion sports apparel catalog with instant filtered search and responsive checkout.",
+    services: ["Frontend — React", "Backend — FastAPI", "Database — PostgreSQL", "Object Storage — Cloudinary", "Hosting — Vercel"],
+    note: "Note: This site belongs to Kerala Jersey — you are visiting their live official store with real products and ordering.",
   },
   {
     title: "YatraSutra",
@@ -63,7 +65,8 @@ const projects: ProjectItem[] = [
     description: "A travel agency website enabling users to discover exotic destinations, compare packages, and craft custom itineraries.",
     image: "https://imgbob.net/ib/8vcAdzPQxnQpa5d_1788320196.png",
     stack: ["React", "Appwrite"],
-    note: "Client Note: Designed for a travel agency with immersive destination discovery and dynamic itinerary builder.",
+    services: ["Frontend — React", "Backend — Appwrite", "Hosting — Vercel"],
+    note: "Note: This site belongs to YatraSutra — you are visiting their live official travel agency website with real destinations and itineraries.",
   },
   {
     title: "LP Workflow",
@@ -73,7 +76,8 @@ const projects: ProjectItem[] = [
     description: "A workflow-based custom software designed for abroad studies operations, applicant tracking, and status verification.",
     image: "https://imgbob.net/ib/MuQxumHuyq9lI56_1788321064.png",
     stack: ["Django", "HTML", "CSS", "Vercel", "PostgreSQL"],
-    note: "Custom Software Note: Multi-stage pipeline automation for overseas study applications and student document tracking.",
+    services: ["Frontend — HTML, CSS", "Backend — Django", "Database — PostgreSQL", "Hosting — Vercel"],
+    note: "Note: The redirecting site is a clone made with client approval for demo purposes — no real applicant data exists on it.",
   },
   {
     title: "LifePlanner",
@@ -83,7 +87,8 @@ const projects: ProjectItem[] = [
     description: "A studies and opportunities portal connecting students with overseas education consulting, program recommendations, and university advisors.",
     image: "https://imgbob.net/ib/t7udRze64RyDebQ_1788321064.png",
     stack: ["Django", "Vercel", "HTML", "CSS"],
-    note: "Consulting Platform Note: Unified education consulting portal connecting students with university opportunities and advisors.",
+    services: ["Frontend — HTML, CSS", "Backend — Django", "Database — PostgreSQL", "Hosting — Vercel"],
+    note: "Note: This site belongs to LifePlanner — Studies & Opportunities — you are visiting their live official portal with real consulting services.",
   },
   {
     title: "Filmaatic",
@@ -93,12 +98,21 @@ const projects: ProjectItem[] = [
     description: "A creative studio website and course enrollment portal for an institute of fashion and cinema.",
     image: "https://imgbob.net/ib/3jwrjIWiB9acyUW_1788320196.png",
     stack: ["React", "Express", "PostgreSQL"],
-    note: "Media & Cinema Note: High-impact media showcase and course enrollment portal for a fashion & film institute.",
+    services: ["Frontend — React", "Backend — Express", "Database — PostgreSQL", "Hosting — Vercel"],
+    note: "Note: This site belongs to Filmaatic Studios — you are visiting their live official website with real studio content and courses.",
   },
 ];
 
 export function ProjectsSection() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, align: "start" });
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: false,
+    align: "start",
+    slidesToScroll: 1,
+    containScroll: "trimSnaps",
+    skipSnaps: false,
+    dragFree: false,
+    duration: 28,
+  });
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
@@ -126,15 +140,22 @@ export function ProjectsSection() {
 
     const container = api.rootNode();
     let lastScroll = 0;
+    let wheelAccum = 0;
+    let wheelResetTimer: number | undefined;
     function onWheel(e: WheelEvent) {
-      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
-        e.preventDefault();
-        const now = Date.now();
-        if (now - lastScroll < 400) return;
-        lastScroll = now;
-        if (e.deltaX > 0) api?.scrollNext();
-        else api?.scrollPrev();
-      }
+      if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
+      if (Math.abs(e.deltaX) < 12) return;
+      e.preventDefault();
+      const now = Date.now();
+      if (now - lastScroll < 750) return;
+      wheelAccum += e.deltaX;
+      clearTimeout(wheelResetTimer);
+      wheelResetTimer = window.setTimeout(() => (wheelAccum = 0), 180);
+      if (Math.abs(wheelAccum) < 28) return;
+      wheelAccum = 0;
+      lastScroll = now;
+      if (e.deltaX > 0) api?.scrollNext();
+      else api?.scrollPrev();
     }
     container.addEventListener("wheel", onWheel, { passive: false });
 
@@ -214,9 +235,6 @@ export function ProjectsSection() {
                     <h3 className="font-display text-2xl font-semibold tracking-[-0.04em] text-[var(--editorial-ink)]">
                       {project.title}
                     </h3>
-                    <p className="mt-3 text-sm leading-6 text-[var(--editorial-muted)] flex-1">
-                      {project.description}
-                    </p>
                   </div>
 
                   {/* Project Card Footer */}

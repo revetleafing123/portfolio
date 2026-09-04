@@ -428,40 +428,76 @@ export function ProjectDetails({
                   <FaServer size={12} className="text-[#7a6456]" />
                   <span>Description</span>
                 </h3>
-                <p className="text-sm leading-6 text-[var(--editorial-muted)]">
-                  {project.description ||
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet."}
-                </p>
+                {project.title === "Nurturley" ? (
+                  <ul className="space-y-2.5">
+                    {[
+                      "Single-tenant, role-based access — granular menu control per role",
+                      "Contacts as master source → Active Leads → Multi-pipeline CRM",
+                      "Pipelines: Client, Sales, Retarget — Kanban with fully custom stages",
+                      "Automations: auto lead distribution, payment cycle capture & retarget flows",
+                      "Bulk moves & cross-pipeline bulk copies + mandatory-field enforcement",
+                      "Complete transaction logs for every contact & lead",
+                      "Dedicated Payments hub — one-time, pipeline & invoice tracking",
+                      "Media Library — bucket / collection creation for contact-linked assets",
+                    ].map((text, i) => (
+                      <li key={i} className="flex gap-2.5 items-start text-sm leading-5 text-[var(--editorial-muted)]">
+                        <span className="mt-2 size-1.5 rounded-full bg-[#7a6456] shrink-0" />
+                        <span>{text}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-sm leading-6 text-[var(--editorial-muted)]">
+                    {project.description ||
+                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet."}
+                  </p>
+                )}
               </div>
 
-              {/* Note Banner – 3D Realistic Glass */}
-              <div
-                className="mb-6 p-3.5 relative overflow-hidden border border-white/40"
-                style={{
-                  background:
-                    "linear-gradient(135deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 40%, rgba(255,255,255,0.08) 100%)",
-                  backdropFilter: "blur(14px) saturate(1.6)",
-                  WebkitBackdropFilter: "blur(14px) saturate(1.6)",
-                  boxShadow:
-                    "inset 0 1px 0 rgba(255,255,255,0.7), 0 4px 16px rgba(163,150,124,0.25), 0 1px 3px rgba(163,150,124,0.15)",
-                }}
-              >
-                {/* top specular highlight strip */}
+              {project.services && project.services.length > 0 && (
+                <div className="mb-6">
+                  <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[var(--editorial-muted)] mb-2.5 flex items-center gap-2">
+                    <FaGear size={12} className="text-[#7a6456]" />
+                    <span>Services</span>
+                  </h3>
+                  <ul className="space-y-2">
+                    {project.services.map((s, i) => (
+                      <li key={i} className="flex gap-2.5 items-start text-sm leading-5 text-[var(--editorial-muted)]">
+                        <span className="mt-2 size-1.5 rounded-full bg-[#7a6456] shrink-0" />
+                        <span>{s}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {project.note && (
                 <div
-                  className="absolute inset-x-0 top-0 h-[1px]"
+                  className="mb-6 p-3.5 relative overflow-hidden border border-white/40"
                   style={{
                     background:
-                      "linear-gradient(90deg, transparent, rgba(255,255,255,0.85) 30%, rgba(255,255,255,0.85) 70%, transparent)",
+                      "linear-gradient(135deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 40%, rgba(255,255,255,0.08) 100%)",
+                    backdropFilter: "blur(14px) saturate(1.6)",
+                    WebkitBackdropFilter: "blur(14px) saturate(1.6)",
+                    boxShadow:
+                      "inset 0 1px 0 rgba(255,255,255,0.7), 0 4px 16px rgba(163,150,124,0.25), 0 1px 3px rgba(163,150,124,0.15)",
                   }}
-                />
-                <div className="text-[#7a6456] font-bold text-xs uppercase tracking-[0.12em] mb-1">
-                  <span>NOTE</span>
+                >
+                  <div
+                    className="absolute inset-x-0 top-0 h-[1px]"
+                    style={{
+                      background:
+                        "linear-gradient(90deg, transparent, rgba(255,255,255,0.85) 30%, rgba(255,255,255,0.85) 70%, transparent)",
+                    }}
+                  />
+                  <div className="text-[#7a6456] font-bold text-xs uppercase tracking-[0.12em] mb-1">
+                    <span>NOTE</span>
+                  </div>
+                  <p className="text-xs leading-5 text-[var(--editorial-ink)] font-medium">
+                    {project.note}
+                  </p>
                 </div>
-                <p className="text-xs leading-5 text-[var(--editorial-ink)] font-medium">
-                  {project.note ||
-                    "Note: Designed with modular architecture principles, performance caching, and clean user experience."}
-                </p>
-              </div>
+              )}
             </motion.div>
 
             {/* Drawer Footer Actions */}
@@ -469,19 +505,21 @@ export function ProjectDetails({
               variants={contentVariants}
               className="px-4 py-3 sm:px-6 border-t border-[var(--editorial-line)] bg-[#efeae0] flex items-center justify-end gap-3.5 mt-auto shrink-0 z-20"
             >
-              <a
-                href={project.githubUrl || "https://github.com/rishebss"}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center justify-center h-8 transition-transform hover:scale-105 cursor-pointer shrink-0"
-                title="View Source Code"
-              >
-                <img
-                  src={`${import.meta.env.BASE_URL}github_dark.svg`}
-                  alt="GitHub"
-                  className="h-8 w-auto object-contain"
-                />
-              </a>
+              {["Nurturley", "Sneaket Store", "LP Workflow"].includes(project.title) && (
+                <a
+                  href={project.githubUrl || "https://github.com/rishebss"}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center h-8 transition-transform hover:scale-105 cursor-pointer shrink-0"
+                  title="View Source Code"
+                >
+                  <img
+                    src={`${import.meta.env.BASE_URL}github_dark.svg`}
+                    alt="GitHub"
+                    className="h-8 w-auto object-contain"
+                  />
+                </a>
+              )}
               <a
                 href={
                   project.link ||
