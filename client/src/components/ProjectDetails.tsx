@@ -1,5 +1,6 @@
 import { AnimatePresence, motion, type Variants } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { FaGithub } from "react-icons/fa";
 import {
   FaArrowLeft,
@@ -294,6 +295,10 @@ export function ProjectDetails({
   project,
 }: ProjectDetailsProps) {
   useEffect(() => {
+    console.log("[ProjectDetails]", { open, project });
+  }, [open, project]);
+
+  useEffect(() => {
     if (!open) return;
 
     // Handle ESC key press to close drawer
@@ -320,10 +325,11 @@ export function ProjectDetails({
     };
   }, [open, onClose]);
 
-  return (
+  if (typeof document === "undefined") return null;
+  const content = (
     <AnimatePresence>
       {open && project && (
-        <div className="fixed inset-0 z-50 flex justify-end">
+        <div className="fixed inset-0 z-[100] flex justify-end">
           {/* Backdrop Overlay */}
           <motion.div
             className="fixed inset-0 bg-black/45 backdrop-blur-xs"
@@ -336,7 +342,7 @@ export function ProjectDetails({
 
           {/* Right Side Drawer */}
           <motion.aside
-            className="relative z-10 w-full max-w-lg sm:max-w-xl h-full bg-[#f5f1e8] text-[#1f1d1a] border-l border-[var(--editorial-line)] shadow-2xl overflow-hidden flex flex-col justify-between"
+            className="relative z-[101] w-full max-w-lg sm:max-w-xl h-full bg-[#f5f1e8] text-[#1f1d1a] border-l border-[var(--editorial-line)] shadow-2xl overflow-hidden flex flex-col justify-between"
             initial="closed"
             animate="open"
             exit="exit"
@@ -632,4 +638,5 @@ export function ProjectDetails({
       )}
     </AnimatePresence>
   );
+  return createPortal(content, document.body);
 }
