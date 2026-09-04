@@ -629,7 +629,9 @@ export function ProjectDetails({
                 rel="noreferrer"
                 className="px-4 py-2 text-xs font-semibold bg-[#7a6456] text-white hover:bg-[#635145] transition-colors flex items-center gap-2 cursor-pointer shadow-sm h-8"
               >
-                <span>Visit</span>
+                <span>
+                  Visit{["Nurturley", "LP Workflow"].includes(project.title) ? " (desktop only)" : ""}
+                </span>
                 <FaArrowUpRightFromSquare size={10} />
               </a>
             </motion.div>
