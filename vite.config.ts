@@ -233,6 +233,7 @@ export default defineConfig({
       ".manuscomputer.ai",
       ".manusvm.computer",
       ".replit.dev",
+      ".monkeycode-ai.live",
       "localhost",
       "127.0.0.1",
     ],

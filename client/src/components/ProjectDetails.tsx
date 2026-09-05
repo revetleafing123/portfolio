@@ -353,7 +353,7 @@ export function ProjectDetails({
           >
             {/* Sticky Drawer Header */}
             <div className="sticky top-0 z-20 bg-[#f5f1e8]/95 backdrop-blur-md px-4 py-3 sm:px-6 border-b border-[var(--editorial-line)] flex items-center justify-between gap-3 shrink-0">
-              <h2 className="font-display text-base sm:text-lg font-semibold tracking-[-0.03em] text-[var(--editorial-ink)] truncate">
+              <h2 className="built-titling uppercase text-base sm:text-lg font-semibold text-[var(--editorial-ink)] truncate">
                 {project.title}
               </h2>
 

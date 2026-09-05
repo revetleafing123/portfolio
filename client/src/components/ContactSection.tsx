@@ -62,7 +62,7 @@ export function ContactSection() {
         <div className="grid gap-12 lg:grid-cols-[1fr_0.68fr] lg:items-end lg:gap-24">
           <div>
             <p className="eyebrow">OPEN CHANNEL</p>
-            <h2 className="display-title mt-6 text-[clamp(2.5rem,6vw,6rem)] tracking-[-0.04em] text-[#1f1d1a]">
+            <h2 className="display-title uppercase mt-6 text-[clamp(2.5rem,6vw,6rem)] text-[#1f1d1a]">
               Have a useful problem?
             </h2>
             <p className="mt-4 max-w-xl text-base leading-7 text-[#1f1d1a]/60">

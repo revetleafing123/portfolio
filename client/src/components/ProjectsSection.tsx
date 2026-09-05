@@ -229,7 +229,7 @@ export function ProjectsSection() {
                         {project.date}
                       </p>
                     </div>
-                    <h3 className="font-display text-2xl font-semibold tracking-[-0.04em] text-[var(--editorial-ink)]">
+                    <h3 className="built-titling uppercase text-2xl font-semibold text-[var(--editorial-ink)]">
                       {project.title}
                     </h3>
                   </div>

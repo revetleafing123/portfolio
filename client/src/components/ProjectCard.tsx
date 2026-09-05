@@ -23,7 +23,7 @@ function NurturelyCaseStudy({ project }: { project: Project }) {
       <div className="flex flex-col justify-between gap-9">
         <div>
           <div className="flex items-center gap-3"><span className="font-display text-4xl tracking-[-0.08em] text-[var(--cobalt)]">01</span><span className="eyebrow-muted">{project.eyebrow}</span></div>
-          <h3 className="mt-7 max-w-xl font-display text-[clamp(2.8rem,5vw,5.9rem)] font-semibold leading-[0.91] tracking-[-0.08em]">The operating layer for teams past spreadsheets.</h3>
+          <h3 className="mt-7 max-w-xl built-titling uppercase text-[clamp(2.8rem,5vw,5.9rem)] font-semibold leading-[0.91]">The operating layer for teams past spreadsheets.</h3>
           <p className="mt-6 max-w-md text-base leading-7 text-[var(--editorial-muted)]">{project.description}</p>
         </div>
       </div>
@@ -46,7 +46,7 @@ function SneaketCaseStudy({ project }: { project: Project }) {
       <div className="relative z-10 grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
         <div>
           <div className="flex items-center gap-3"><span className="font-display text-4xl tracking-[-0.08em] text-[var(--amber)]">02</span><span className="eyebrow text-[var(--amber)]">AI COMMERCE / SNEAKET</span></div>
-          <h3 className="mt-7 max-w-xl font-display text-[clamp(2.8rem,5vw,5.8rem)] font-semibold leading-[0.91] tracking-[-0.08em]">A shopping assistant that knows the next move.</h3>
+          <h3 className="mt-7 max-w-xl built-titling uppercase text-[clamp(2.8rem,5vw,5.8rem)] font-semibold leading-[0.91]">A shopping assistant that knows the next move.</h3>
           <p className="mt-6 max-w-md text-base leading-7 text-white/60">{project.description}</p>
           <div className="mt-7"><Tags dark items={project.stack} /></div>
           <div className="mt-8"><Links dark project={project} /></div>
@@ -76,7 +76,7 @@ function FifacCaseStudy({ project }: { project: Project }) {
       </div>
       <div className="order-1 lg:order-2">
         <div className="flex items-center gap-3"><span className="font-display text-4xl tracking-[-0.08em] text-[var(--amber)]">03</span><span className="eyebrow-muted">CLIENT PLATFORM / OPERATIONS</span></div>
-        <h3 className="mt-7 max-w-xl font-display text-[clamp(2.8rem,5vw,5.5rem)] font-semibold leading-[0.91] tracking-[-0.08em]">The calm behind a busy studio.</h3>
+        <h3 className="mt-7 max-w-xl built-titling uppercase text-[clamp(2.8rem,5vw,5.5rem)] font-semibold leading-[0.91]">The calm behind a busy studio.</h3>
         <p className="mt-6 max-w-md text-base leading-7 text-[var(--editorial-muted)]">{project.description}</p>
         <div className="mt-7 border-l-2 border-[var(--cobalt)] pl-5"><p className="eyebrow-muted">Architecture note</p><p className="mt-2 text-sm leading-6 text-[var(--editorial-muted)]">React/Express owns the authenticated dashboard. Django owns secure payment operations. Firebase keeps the shared operational data close.</p></div>
         <div className="mt-7"><Tags items={project.stack} /></div>

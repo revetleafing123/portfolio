@@ -57,7 +57,7 @@ export default function Disclaimer() {
           <div className="flex flex-col gap-8 border-b border-black/10 pb-10 sm:flex-row sm:items-end sm:justify-between sm:gap-12">
             <div className="max-w-3xl">
               <p className="eyebrow">LEGAL / PRIVACY</p>
-              <h1 className="display-title mt-5 max-w-3xl text-[clamp(1.9rem,6vw,3.4rem)] tracking-[-0.07em] whitespace-normal md:whitespace-nowrap break-words">
+              <h1 className="display-title uppercase mt-5 max-w-3xl text-[clamp(1.9rem,6vw,3.4rem)] whitespace-normal md:whitespace-nowrap break-words">
                 Privacy, without the fog.
               </h1>
               <p className="mt-6 max-w-2xl text-base leading-7 text-[#1f1d1a]/65 sm:text-lg sm:leading-8">
@@ -80,7 +80,7 @@ export default function Disclaimer() {
             <div className="grid gap-4">
               {sections.map((section) => (
                 <section className="rounded-[1.5rem] border border-black/10 bg-[#fbf8f1] p-6 shadow-[0_8px_22px_rgba(87,69,52,0.05)] sm:p-8" key={section.title}>
-                  <h2 className="font-display text-xl font-semibold tracking-[-0.045em] text-[#1f1d1a] sm:text-2xl">{section.title}</h2>
+                  <h2 className="built-titling uppercase text-xl font-semibold text-[#1f1d1a] sm:text-2xl">{section.title}</h2>
                   <p className="mt-4 max-w-3xl text-sm leading-7 text-[#1f1d1a]/65 sm:text-base sm:leading-8">{section.body}</p>
                 </section>
               ))}

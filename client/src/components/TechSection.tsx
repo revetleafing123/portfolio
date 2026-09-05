@@ -131,7 +131,7 @@ export function TechSection() {
         <div className="section-reveal mt-3 flex items-center justify-between lg:hidden">
           <p
             key={selectedTech}
-            className="animate-[tech-option-in_280ms_ease-out] font-display text-3xl font-semibold tracking-[-0.04em] text-[var(--editorial-ink)]"
+            className="animate-[tech-option-in_280ms_ease-out] built-titling uppercase text-3xl font-semibold text-[var(--editorial-ink)]"
           >
             {selectedTech}
           </p>

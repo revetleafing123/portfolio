@@ -25,7 +25,7 @@ export function SupportingWork() {
           </div>
           <div className="p-5 sm:p-6">
             <div className="flex items-start justify-between gap-4">
-              <h3 className="font-display text-xl font-semibold tracking-[-0.045em]">{item.name}</h3>
+              <h3 className="built-titling uppercase text-xl font-semibold">{item.name}</h3>
               <FaArrowUpRightFromSquare aria-hidden="true" className="mt-1 shrink-0 text-muted-foreground transition group-hover:text-[var(--cobalt)]" size={13} />
             </div>
             <p className="mt-3 text-sm leading-6 text-muted-foreground">{item.detail}</p>

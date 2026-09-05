@@ -26,7 +26,7 @@ export function SectionHeader({
       </div>
       <div className={`max-w-3xl ${contentClassName}`}>
         <motion.h2
-          className={`display-title text-[clamp(1.8rem,4vw,3.5rem)] ${titleClassName}`}
+          className={`display-title uppercase text-[clamp(1.8rem,4vw,3.5rem)] ${titleClassName}`}
           initial={{ opacity: 0, y: 24 }}
           transition={{ duration: 0.65, ease: [0.23, 1, 0.32, 1] }}
           whileInView={{ opacity: 1, y: 0 }}

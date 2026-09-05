@@ -29,7 +29,7 @@ export function WorkSection() {
             }}
           >
             <p className="eyebrow">MY RESUME</p>
-            <h2 className="mt-3 font-display text-2xl font-semibold tracking-[-0.05em] text-[#5c4d42] sm:text-3xl">
+            <h2 className="mt-3 built-titling uppercase text-2xl font-semibold text-[#5c4d42] sm:text-3xl">
               The short version.
             </h2>
             <p className="mt-3 text-sm leading-6 text-[#1f1d1a]/60">

@@ -92,7 +92,7 @@
 }
 
 @theme inline {
-  --font-display: "Space Grotesk", sans-serif;
+  --font-display: "Built Titling SB", "Built Titling", sans-serif;
   --font-body: "DM Sans", sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -262,13 +262,19 @@
 
   .display-title {
     font-family: var(--font-display);
-    font-weight: 650;
-    letter-spacing: -0.04em !important;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 0.08em !important;
     line-height: 0.92;
+    text-transform: uppercase;
   }
 
   .font-display {
-    letter-spacing: -0.015em !important;
+    font-family: var(--font-display);
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase;
   }
 
   .eyebrow {

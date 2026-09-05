@@ -145,7 +145,7 @@ export function ExperienceSection() {
                   {item.period}
                   {isCurrent && <span className="size-1.5 rounded-full bg-[var(--cobalt)]" />}
                 </p>
-                <h3 className="mt-4 font-display text-xl font-semibold tracking-[-0.04em] text-[var(--editorial-ink)]">
+                <h3 className="mt-4 built-titling uppercase text-xl font-semibold text-[var(--editorial-ink)]">
                   {item.role}
                 </h3>
                 <p className="mt-1 text-sm font-medium text-[#7a6456]">{item.company}</p>
