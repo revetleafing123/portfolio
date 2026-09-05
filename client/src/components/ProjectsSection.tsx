@@ -56,6 +56,7 @@ const projects: ProjectItem[] = [
     stack: ["React", "FastAPI", "PostgreSQL", "Vercel", "Cloudinary"],
     services: ["Frontend — React", "Backend — FastAPI", "Database — Neon Postgres", "Object Storage — Cloudinary", "Hosting — Vercel (frontend + backend)"],
     note: "Note: This site belongs to Kerala Jersey — you are visiting their live official store with real products and ordering.",
+    link: "https://kerala.jersey.com",
   },
   {
     title: "Miaat",
@@ -64,8 +65,8 @@ const projects: ProjectItem[] = [
     type: "Client Website",
     description: "A wellness & booking platform for a 17-year acupuncture practice — personalised treatments, whole-person care, and calendar-based service booking.",
     image: "https://imgbob.net/ib/8FhFQWtNO9pLpVC_1788557688.png",
-    stack: ["React", "Express", "Vercel", "Neon"],
-    services: ["Frontend — React", "Backend — Express", "Database — Neon Postgres", "Hosting — Vercel (frontend & backend)"],
+    stack: ["Next.js", "Vercel", "Neon"],
+    services: ["Frontend — Next.js", "Database — Neon Postgres", "Hosting — Vercel (frontend & backend)"],
     note: "Note: This site belongs to Miaat — you are visiting their live official wellness & booking platform for Dr. Thameem Ansari.",
     link: "https://miaat.vercel.app",
   },
@@ -79,6 +80,7 @@ const projects: ProjectItem[] = [
     stack: ["React", "Appwrite"],
     services: ["Frontend — React", "Hosting — Cloudflare (frontend)", "Backend — Appwrite (DB + Storage)"],
     note: "Note: This site belongs to YatraSutra — you are visiting their live official travel agency website with real destinations and itineraries.",
+    link: "https://yatrasutra.com",
   },
   {
     title: "LP Workflow",
@@ -90,6 +92,7 @@ const projects: ProjectItem[] = [
     stack: ["Django", "HTML", "CSS", "Vercel", "PostgreSQL"],
     services: ["Backend — Django", "Database — Neon Postgres", "Hosting — Vercel"],
     note: "Note: The redirecting site is a clone made with client approval for demo purposes — no real applicant data exists on it.",
+    link: "https://rishebscrm.vercel.app",
   },
   {
     title: "LifePlanner",
@@ -101,6 +104,7 @@ const projects: ProjectItem[] = [
     stack: ["Django", "Vercel", "HTML", "CSS"],
     services: ["Backend — Django", "Database — Supabase Postgres", "Hosting — Vercel"],
     note: "Note: This site belongs to LifePlanner — Studies & Opportunities — you are visiting their live official portal with real consulting services.",
+    link: "https://lifeplanneruniversal.com",
   },
   {
     title: "Filmaatic",
@@ -112,6 +116,7 @@ const projects: ProjectItem[] = [
     stack: ["React", "Express", "PostgreSQL"],
     services: ["Frontend — React", "Backend — Express", "Database — Neon Postgres", "Hosting — Cloudflare (frontend), Vercel (backend)"],
     note: "Note: This site belongs to Filmaatic Studios — you are visiting their live official website with real studio content and courses.",
+    link: "https://filmaatic.com",
   },
 ];
 
