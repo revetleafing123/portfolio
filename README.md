@@ -44,7 +44,7 @@ Hosting and deployment are intentionally left to the owner.
 
 ## Asset handling
 
-Generated visual assets use the project-scoped `/manus-storage/` URLs. The temporary avatar is the user-provided SVG uploaded as `rishebs-avatar`. The current resume download is a truthful text export of the supplied CV and can be replaced with a final PDF later.
+Generated visual assets use the project-scoped `/manus-storage/` URLs. The temporary avatar is the user-provided SVG uploaded as `rishebs-avatar`. The resume download uses the final PDF at `/resume/Risheb.s_Resume.pdf`.
 
 ## Cloudflare Pages
 
