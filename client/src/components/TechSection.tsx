@@ -33,7 +33,6 @@ const TECH_TILES: Record<string, TechTile[]> = {
     { name: "Docker", mark: "D", asset: techAsset("docker (1).svg") },
     { name: "Vercel", mark: "V", asset: techAsset("vercel-dark.svg") },
     { name: "Railway", mark: "R", asset: techAsset("railway.svg") },
-    { name: "Cloudflare", mark: "C", asset: techAsset("cloudflare.svg") },
     { name: "Netlify", mark: "N", asset: techAsset("netlify (2).svg") },
     { name: "Appwrite", mark: "A", asset: techAsset("appwrite.svg") },
     { name: "Convex", mark: "C", asset: techAsset("convex.svg") },
