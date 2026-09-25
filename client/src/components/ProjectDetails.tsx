@@ -114,6 +114,7 @@ function getTechSvgAsset(name: string): string | null {
   if (lower.includes("tailwind")) return techAsset("tailwind-css.svg");
   if (lower.includes("firebase")) return techAsset("firebase-icon.svg");
   if (lower.includes("glm")) return techAsset("glm.svg");
+  if (lower.includes("nocodb")) return techAsset("nocodb.svg");
   if (lower.includes("cloudflare")) return techAsset("cloudflare.svg");
   if (lower.includes("openai") || lower.includes("llm") || lower.includes("ai"))
     return techAsset("openai-fill.svg");
@@ -419,7 +420,23 @@ export function ProjectDetails({
                   <FaServer size={12} className="text-[#7a6456]" />
                   <span>Description</span>
                 </h3>
-                {project.title === "Nurturley" ? (
+                {project.title === "Hertex" ? (
+                  <ul className="space-y-2.5">
+                    {[
+                      "AI startup platform shaped around a confident, conversion-ready product narrative",
+                      "React component system for a fast, expressive interface that can keep evolving with the company",
+                      "NocoDB-backed content layer keeps product stories, updates, and key startup messaging easy to maintain",
+                      "Cloudflare deployment for a fast, resilient delivery layer with a clean path from launch to iteration",
+                      "Focused information architecture turns a complex AI proposition into a story people can understand quickly",
+                      "Visual language balances technical credibility with the warmth and momentum expected from an early-stage AI company",
+                    ].map((text, i) => (
+                      <li key={i} className="flex gap-2.5 items-start text-sm leading-5 text-[var(--editorial-muted)]">
+                        <span className="mt-2 size-1.5 rounded-full bg-[#7a6456] shrink-0" />
+                        <span>{text}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : project.title === "Nurturley" ? (
                   <ul className="space-y-2.5">
                     {[
                       "Single-tenant, role-based access — granular menu control per role",

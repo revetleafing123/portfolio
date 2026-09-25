@@ -23,6 +23,18 @@ export interface ProjectItem {
 
 const projects: ProjectItem[] = [
   {
+    title: "Hertex",
+    date: "July 2026",
+    badge: "AI Startup Platform",
+    type: "AI Startup Platform",
+    description: "A sharp, high-conviction web presence for Hertex — an AI startup building a clearer bridge between ambitious product thinking and the teams ready to put it to work.",
+    image: "https://imgbob.net/ib/VMr0pBaWpr30R7O_1790364458.png",
+    stack: ["React", "NocoDB", "Cloudflare"],
+    services: ["Frontend — React", "Content & data — NocoDB", "Hosting — Cloudflare"],
+    note: "A focused startup build for Hertex, designed to make an AI-first product story feel credible, legible, and ready for the next conversation.",
+    link: "https://hertex.in",
+  },
+  {
     title: "Nurturley",
     date: "Present",
     badge: "Personal SaaS",
@@ -285,4 +297,3 @@ export function ProjectsSection() {
     </section>
   );
 }
-

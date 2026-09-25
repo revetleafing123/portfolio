@@ -23,8 +23,35 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "nurturley",
+    slug: "hertex",
     number: "01",
+    eyebrow: "CLIENT PLATFORM / AI STARTUP",
+    name: "Hertex",
+    title: "A sharper signal for an AI-first company.",
+    summary: "A focused startup platform for translating ambitious AI product thinking into a clear, credible web experience.",
+    description:
+      "Hertex needed a digital presence that could carry the energy of an AI startup without sacrificing clarity. I shaped the experience around a tighter product story, an expressive React interface, and a content layer that lets the team evolve the narrative without waiting on a full engineering cycle.",
+    role: "Product framing, frontend architecture, delivery",
+    impact: "Launch-ready AI startup presence",
+    stack: ["React", "NocoDB", "Cloudflare"],
+    image: "https://imgbob.net/ib/VMr0pBaWpr30R7O_1790364458.png",
+    imageAlt: "Hertex AI startup website visual",
+    liveUrl: "https://hertex.in",
+    accent: "cobalt",
+    highlights: [
+      "Translated a complex AI proposition into a concise, high-conviction product story.",
+      "Built a flexible React surface for fast startup iteration and future product modules.",
+      "Connected NocoDB-backed content workflows with a Cloudflare deployment path for quick publishing.",
+    ],
+    architecture: [
+      "React frontend with reusable sections and a deliberate visual system for product, capability, and trust signals.",
+      "NocoDB as a lightweight content and data layer so the team can keep the site current without a code release for every edit.",
+      "Cloudflare delivery for a lean launch surface that stays close to the edge and ready to scale with the company.",
+    ],
+  },
+  {
+    slug: "nurturley",
+    number: "02",
     eyebrow: "FEATURED SYSTEM / SAAS",
     name: "Nurturley",
     title: "The operating layer for teams that have outgrown spreadsheets.",
