@@ -25,7 +25,7 @@ export const projects: Project[] = [
   {
     slug: "hertex",
     number: "01",
-    eyebrow: "CLIENT PLATFORM / AI STARTUP",
+    eyebrow: "CLIENT WEBSITE / AI",
     name: "Hertex",
     title: "A sharper signal for an AI-first company.",
     summary: "A focused startup platform for translating ambitious AI product thinking into a clear, credible web experience.",
@@ -33,7 +33,7 @@ export const projects: Project[] = [
       "Hertex needed a digital presence that could carry the energy of an AI startup without sacrificing clarity. I shaped the experience around a tighter product story, an expressive React interface, and a content layer that lets the team evolve the narrative without waiting on a full engineering cycle.",
     role: "Product framing, frontend architecture, delivery",
     impact: "Launch-ready AI startup presence",
-    stack: ["React", "NocoDB", "Cloudflare"],
+    stack: ["React", "NocoDB"],
     image: "https://imgbob.net/ib/VMr0pBaWpr30R7O_1790364458.png",
     imageAlt: "Hertex AI startup website visual",
     liveUrl: "https://hertex.in",
